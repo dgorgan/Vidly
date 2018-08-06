@@ -13,12 +13,19 @@ namespace Vidly.Controllers
             return View();
         }
 
-        public ActionResult About()
+        [Route("About/{id?}")]
+        public ActionResult About(int? id)
         {
-            ViewBag.Message = "Your application description page.";
+            if (id != null)
+            {
+                ViewBag.Message = "Your application description page and id: " + id;
+            } else
+            {
+                ViewBag.Message = "Your application description page without id";
+            }
 
             return View();
-        }
+        }    
 
         public ActionResult Contact()
         {
